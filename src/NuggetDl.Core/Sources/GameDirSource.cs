@@ -12,7 +12,7 @@ public static class GameDirResolver
 {
     private static readonly (string StreamingRel, string ResourcesRel)[] Candidates =
     [
-        (Path.Combine("Game_Data", "StreamingAssets"), Path.Combine("Game_Data", "resources.assets")),
+        (Path.Combine(ClientValues.DataFolder, "StreamingAssets"), Path.Combine(ClientValues.DataFolder, "resources.assets")),
         ("StreamingAssets", "resources.assets"),
         (".", Path.Combine("..", "resources.assets")),
     ];

@@ -432,3 +432,6 @@ FodyWeavers.xsd
 # repo root by manual CLI runs (out/, out2/, out-spine/, out-whatever-test/,
 # ...). [Oo]ut/ above only catches a directory named exactly "out".
 /out*/
+
+# The server addresses and launcher keys, kept out of the repository (see client.example.json).
+client.json

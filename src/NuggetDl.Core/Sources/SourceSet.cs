@@ -45,7 +45,8 @@ public sealed class SourceSet
             default:
                 if (!PcStarterCdn.ByName.TryGetValue(primaryType, out var cdnData))
                 {
-                    throw new UnknownSourceException($"Unknown primary type {primaryType}");
+                    throw new UnknownSourceException(
+                        ClientValues.IsConfigured ? $"Unknown primary type {primaryType}" : ClientValues.MissingMessage);
                 }
 
                 Sources.Add(new PcStarterSource(cdnData, primaryType, prerelease, _bundleIndexReader));
@@ -65,7 +66,8 @@ public sealed class SourceSet
     {
         if (!PatchCdn.ByName.TryGetValue(patchType, out var cdnData))
         {
-            throw new UnknownSourceException($"Unknown patch type {patchType}");
+            throw new UnknownSourceException(
+                        ClientValues.IsConfigured ? $"Unknown patch type {patchType}" : ClientValues.MissingMessage);
         }
 
         version ??= await InferPatchVersionAsync(ct);

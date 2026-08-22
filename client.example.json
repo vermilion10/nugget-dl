@@ -1,0 +1,12 @@
+{
+  // Name of the folder next to the game executable that holds StreamingAssets, used by --game-dir.
+  "dataFolder": "",
+  // Patch CDNs by preset name: base address, app id, platform ("android" or "standalone"), and whether requests are signed.
+  "patchCdns": {
+    "EN": { "cdn": "", "appId": "", "platform": "android", "sign": false }
+  },
+  // PC launcher CDNs by preset name: base address, game id and launcher iteration.
+  "launchers": {
+    "EN_PC": { "cdn": "", "gameId": 0, "iteration": "" }
+  }
+}

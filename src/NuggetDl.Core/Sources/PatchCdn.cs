@@ -41,90 +41,10 @@ public sealed record PatchCdnData(
 }
 
 /// <summary>
-/// The known patch CDNs, one per region/platform combination.
+/// The known patch CDNs, one per region/platform combination. The table lives in <see cref="ClientValues"/>.
 /// </summary>
 public static class PatchCdn
 {
-    // CDN base url, app_id, platform from the config tab PrimaryCdn, e.g.
-    // https://cdn.invalid/
-    public static readonly PatchCdnData En = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android");
-
-    public static readonly PatchCdnData EnPc = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone");
-
-    public static readonly PatchCdnData Kr = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android");
-
-    public static readonly PatchCdnData KrPc = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone");
-
-    public static readonly PatchCdnData Jp = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android");
-
-    public static readonly PatchCdnData JpPc = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone");
-
-    public static readonly PatchCdnData Tw = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android");
-
-    public static readonly PatchCdnData TwPc = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone");
-
-    // https://cdn.invalid/
-    public static readonly PatchCdnData Cn = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android");
-
-    public static readonly PatchCdnData CnPc = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone");
-
-    public static readonly PatchCdnData CnBeta = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "android",
-        Sign: true);
-
-    public static readonly PatchCdnData CnPcBeta = new(
-        "https://cdn.invalid/",
-        "app.id",
-        "standalone",
-        Sign: true);
-
     /// <summary>Name -&gt; data, for CLI lookups by string (e.g. "EN_PC").</summary>
-    public static readonly IReadOnlyDictionary<string, PatchCdnData> ByName =
-        new Dictionary<string, PatchCdnData>(StringComparer.OrdinalIgnoreCase)
-        {
-            ["EN"] = En,
-            ["EN_PC"] = EnPc,
-            ["KR"] = Kr,
-            ["KR_PC"] = KrPc,
-            ["JP"] = Jp,
-            ["JP_PC"] = JpPc,
-            ["TW"] = Tw,
-            ["TW_PC"] = TwPc,
-            ["CN"] = Cn,
-            ["CN_PC"] = CnPc,
-            ["CN_BETA"] = CnBeta,
-            ["CN_PC_BETA"] = CnPcBeta,
-        };
+    public static IReadOnlyDictionary<string, PatchCdnData> ByName => ClientValues.PatchCdns;
 }
