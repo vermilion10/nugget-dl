@@ -427,3 +427,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# NuggetDl-specific: extract/spine/list output dropped anywhere under the
+# repo root by manual CLI runs (out/, out2/, out-spine/, out-whatever-test/,
+# ...). [Oo]ut/ above only catches a directory named exactly "out".
+/out*/
