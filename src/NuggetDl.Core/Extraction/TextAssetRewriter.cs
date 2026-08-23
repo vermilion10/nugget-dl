@@ -1,5 +1,6 @@
 using System.Text;
 using NuggetDl.Core.BinaryTable;
+using NuggetDl.Core.Sources;
 
 namespace NuggetDl.Core.Extraction;
 
@@ -13,9 +14,7 @@ public static class TextAssetRewriter
 {
     private const string TempBytesMarker = "/temp/bytes/";
 
-    private static readonly byte[] XCryptoKey =
-    [
-    ];
+    private static byte[] XCryptoKey => ClientValues.TextKey;
 
     /// <summary>Byte-rotation XOR cipher used for obfuscated .lua scripts. Symmetric (its own inverse).</summary>
     public static byte[] Decrypt(byte[] content)

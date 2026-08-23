@@ -12,18 +12,9 @@ public static class Presets
         ["china-beta"] = "CN_PC_BETA",
     };
 
-    // Checked newest-first; the first entry whose version is <= the game
-    // version wins.
-    private static readonly (Version MinVersion, string Key)[] DecryptionKeys =
-    [
-        (new Version(3, 4, 0), ""),
-        (new Version(1, 22, 0), ""),
-        (new Version(0, 0, 0), ""),
-    ];
-
     public static string DetermineDecryptionKey(Version version)
     {
-        foreach (var (minVersion, key) in DecryptionKeys)
+        foreach (var (minVersion, key) in ClientValues.BundleKeys)
         {
             if (version >= minVersion)
             {

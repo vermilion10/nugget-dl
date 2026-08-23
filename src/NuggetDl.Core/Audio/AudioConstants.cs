@@ -1,3 +1,5 @@
+using NuggetDl.Core.Sources;
+
 namespace NuggetDl.Core.Audio;
 
 /// <summary>
@@ -6,5 +8,5 @@ namespace NuggetDl.Core.Audio;
 /// </summary>
 public static class AudioConstants
 {
-    public const long AudioKey = 0;
+    public static long AudioKey => ClientValues.AudioKey;
 }

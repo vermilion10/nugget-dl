@@ -49,4 +49,20 @@ public static class ClientValues
             ["CN_PC"] = new(CnLauncherCdn, 148, "", Predownload: false),
             ["CN_PC_BETA"] = new(CnLauncherCdn, 148, "", Predownload: false),
         };
+
+    /// <summary>UnityCN bundle keys, checked newest-first; the first entry whose version is &lt;= the game version wins.</summary>
+    public static IReadOnlyList<(Version MinVersion, string Key)> BundleKeys { get; } =
+    [
+        (new Version(3, 4, 0), ""),
+        (new Version(1, 22, 0), ""),
+        (new Version(0, 0, 0), ""),
+    ];
+
+    /// <summary>Fixed HCA decryption key used for every ACB/AWB/USM audio stream.</summary>
+    public static long AudioKey => 0;
+
+    /// <summary>The XOR table obfuscated text assets under temp/bytes are encrypted with.</summary>
+    public static byte[] TextKey { get; } =
+    [
+    ];
 }
