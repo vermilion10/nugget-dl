@@ -3,10 +3,18 @@
   "dataFolder": "",
   // Patch CDNs by preset name: base address, app id, platform ("android" or "standalone"), and whether requests are signed.
   "patchCdns": {
-    "EN": { "cdn": "", "appId": "", "platform": "android", "sign": false }
+    "EN_PC": { "cdn": "", "appId": "", "platform": "standalone", "sign": false }
   },
   // PC launcher CDNs by preset name: base address, game id and launcher iteration.
   "launchers": {
     "EN_PC": { "cdn": "", "gameId": 0, "iteration": "" }
-  }
+  },
+  // UnityCN bundle keys (16 characters) and the client version each applies from.
+  "bundleKeys": [
+    { "minVersion": "0.0.0", "key": "" }
+  ],
+  // The HCA audio key, decimal or 0x-prefixed hex.
+  "audioKey": "",
+  // The XOR table for obfuscated text assets, as a hex string.
+  "textKey": ""
 }

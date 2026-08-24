@@ -217,7 +217,17 @@ public static class Program
 
         root.Subcommands.Add(spineCommand);
 
-        return await root.Parse(args).InvokeAsync();
+        // Source problems (unknown preset, missing client config, unreachable CDN) are reported as one line, not
+        // as a stack trace; anything else still goes to the default handler.
+        try
+        {
+            return await root.Parse(args).InvokeAsync(new InvocationConfiguration { EnableDefaultExceptionHandler = false });
+        }
+        catch (SourceException e)
+        {
+            Console.Error.WriteLine(e.Message);
+            return 1;
+        }
     }
 
     /// <summary>
