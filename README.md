@@ -18,6 +18,19 @@ It exists for asset research, dataset building, and archival purposes. See
   extraction (muxes the demuxed streams into MP4/HLS). Any recent build with libx264 works;
   NVENC is used automatically if available, detected at runtime.
 
+## Setup
+
+nugget-dl doesn't include the game's server addresses or keys. Before the first run, copy
+`client.example.json` to `%APPDATA%\nugget-dl\client.json` (or next to the executable) and fill in:
+
+- `patchCdns` and `launchers`: the patch and PC launcher CDNs for each preset;
+- `bundleKeys`: the UnityCN bundle keys and the client version each applies from;
+- `audioKey`: the HCA audio key;
+- `textKey`: the XOR table for obfuscated text assets, as hex;
+- `dataFolder`: the install's data folder name, for `--game-dir`.
+
+Without this file every source reports that it is missing.
+
 ## Building
 
 ```bash
@@ -160,9 +173,8 @@ resolution, file I/O, CLI, image/video muxing).
 
 ## Disclaimer
 
-This tool downloads and decrypts assets from the game's CDN using
-publicly-known, reverse-engineered constants (UnityCN bundle keys, the CN-beta signing scheme
-via `PATCH_SIGN_KEY`, the fixed HCA audio key). Nothing extracted or produced by
+This tool downloads and decrypts assets from the game's CDN. The repository contains no game
+assets, server addresses or keys; you supply those in `client.json`. Nothing extracted or produced by
 this tool should be redistributed in ways that infringe the game owners'
 copyright; use it for research, personal archival, and dataset-building, and respect the game's
 terms of service.
